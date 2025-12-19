@@ -125,8 +125,10 @@ function startWatching() {
   socket.emit("watcher");
 
   let peerConnection; // Viewers only connect to one broadcaster
+  let broadcasterId;
 
   socket.on("offer", (id, description) => {
+    broadcasterId = id;
     peerConnection = new RTCPeerConnection(config);
 
     peerConnection.oniceconnectionstatechange = () => {
@@ -163,9 +165,11 @@ function startWatching() {
     socket.emit("watcher");
   });
 
-  socket.on("disconnectPeer", () => {
-    if (peerConnection) peerConnection.close();
-    alert("Broadcast ended.");
-    location.reload();
+  socket.on("disconnectPeer", (id) => {
+    if (broadcasterId && id === broadcasterId) {
+      if (peerConnection) peerConnection.close();
+      alert("Broadcast ended.");
+      location.reload();
+    }
   });
 }
