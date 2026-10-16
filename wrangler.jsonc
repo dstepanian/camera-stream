@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "camera-stream",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-16",
+  "workers_dev": true,
+  "routes": [{ "pattern": "stream.zromek.de", "custom_domain": true }],
+  "build": {
+    "command": "npm run build",
+    "watch_dir": ["main.js", "style.css", "index.html"]
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ws"]
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "ROOMS", "class_name": "StreamRoom" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["StreamRoom"] }]
+}

@@ -2,38 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StreamLine - Camera Feed</title>
-    <link rel="stylesheet" href="./style.css" />
-    <!-- Importing a nice font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="Find your PCs and stream a camera directly between devices.">
+    <title>StreamLine — Camera Streaming</title>
   </head>
   <body>
-    <div id="app">
-      <div class="overlay" id="start-overlay">
-        <div class="content">
-            <h1>StreamLine</h1>
-            <p>Share your camera stream on the local network.</p>
-            <button id="start-camera-btn">Start Broadcast</button>
-            <p class="status" id="status-msg">Waiting to start...</p>
-        </div>
-      </div>
-      
-      <video id="camera-feed" autoplay playsinline muted></video>
-      
-      <div class="controls hide" id="controls">
-          <div class="info-pill">
-            <span class="recording-dot"></span>
-            <span id="resolution-display">Checking...</span>
-          </div>
-          <button class="icon-btn" id="fullscreen-btn" title="Toggle Fullscreen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-          </button>
-      </div>
-    </div>
+    <div id="app"></div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

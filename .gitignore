@@ -82,3 +82,8 @@ typings/
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Cloudflare local state and generated output
+.wrangler/
+dist/
+.dev.vars*
